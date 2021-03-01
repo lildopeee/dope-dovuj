@@ -5,7 +5,8 @@ Citizen.CreateThread(function()
 
         local player = PlayerPedId()
         local playerLoc = GetEntityCoords(player, false)
-        local distance = GetDistanceBetweenCoords(playerLoc.x, playerLoc.y, playerLoc.z, vector3(-522.8, -1715.16, 19.32), true)
+        local distance = #(playerLoc - vector3(-522.8, -1715.16, 19.32))
+
         if distance < 1.6 then
             Wait = 5
             DrawText3D(vector3(-522.8, -1715.16, 19.32), '~w~[~g~E~w~] Tusuna Basarak UFC e Basvur')
@@ -17,6 +18,7 @@ Citizen.CreateThread(function()
         else
             Wait = 1000
         end
+			
         Citizen.Wait(Wait)
     end
 end)
