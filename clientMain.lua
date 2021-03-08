@@ -44,11 +44,13 @@ end)
 Citizen.CreateThread(function()
     while true do
         if isJoinedFight == true then
+	    DisableControlAction(2, 80, true)
             CamRefreshTime = 3
             local player = PlayerPedId()
             local playerLoc = GetEntityCoords(player, false)
             SetCamCoord(FightCam, playerLoc.x-1.5, playerLoc.y-1.5,  21.00)
         else
+	    DisableControlAction(2, 80, false)
             CamRefreshTime = 1000
         end
         Citizen.Wait(CamRefreshTime)
